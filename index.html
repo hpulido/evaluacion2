@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Evaluaci&oacuten No. 2</title>
+	<link rel="shortcut icon" href="sasuke.ico">
+	<meta name="autor" content="Héctor Manuel Pulido Cortez"> 
+	<style type="text/css">
+		p.capitalize 
+		{
+		    text-transform: capitalize;
+		}
+
+		input#nom {border-width: 5px; border-color: red;}
+
+		input.clase1 {background-color: blue; border-color: yellow;}
+
+		.boton
+		{
+            background:gray;
+        }
+        .boton:hover{
+            background:violet;
+        }
+        .boton:active{
+            background:red;
+        }
+
+        @media(max-width: 700px)
+        {
+        	.boton
+        	{
+        		background: pink;
+        	}
+        }
+        @media(min-width: 750px)
+        {
+    		.boton
+    		{
+    			text-transform: uppercase; 
+    		}
+    	}
+
+    	@media print
+    	{
+    		header, footer, nav, p, #formulario
+    		{ 
+    			display: none !important; 
+    		} 
+    		#imprimir
+    		{
+    			position: absolute;
+    			top:50%;
+    			left: 50%;
+    		}
+    	}
+    	#imprimir
+    	{
+    		border-radius: 5px;
+    	}
+
+    	#formulario
+    	{
+    		margin: 3em;
+    		padding: 2em;
+    	}
+	</style>
+
+	<script type="text/javascript">
+	function consola()
+	{
+		var total;
+		var a= document.getElementById("nom").value;
+		var b= document.getElementById("ape").value;
+		  console.log(a + "," + b);
+	}
+	
+	function operacion()
+	{
+		var total;
+		var a= document.getElementById("nom").value;
+		var b= document.getElementById("ape").value;
+		var opcion = document.getElementById("operaciones").value;
+		if (opcion == "suma") {
+		     document.getElementById("total").value = (parseInt(a) + parseInt(b));
+		   }
+		   else if ( opcion == "resta")
+		   {
+		     document.getElementById("total").value = (parseInt(a) - parseInt(b));
+		   }
+		   else if ( opcion == "multiplicacion")
+		   {
+		     document.getElementById("total").value = (parseInt(a) * parseInt(b));
+		   }
+		   else
+		   {
+		     document.getElementById("total").value = (parseInt(a) / parseInt(b));
+		   }
+		   localStorage.setItem("Resultado", document.getElementById("total").value);
+  			 //document.getElementById("total").value = localStorage.getItem("Resultado");
+	}
+	function carga()
+	{
+		document.getElementById("total").value = localStorage.getItem("Resultado");
+	}
+	window.onload=carga;
+	</script>
+</head>
+<body>
+<!--
+	<h1>My First Heading</h1>
+	<p>My first paragraph</p>
+	<hr>
+	<div style="text-align: center"> -->
+		<form class="capitalize" id="formulario" style="text-align: right; color: red;">
+			Nombre:<input type="text" id="nom"></input> 
+
+			<select name="operaciones" id="operaciones">
+				<option value="suma">suma</option>
+				<option value="resta">resta</option>
+				<option value="multiplicacion">multiplicaci&oacuten</option>
+				<option value="division">divisi&oacuten</option>
+			</select>
+			<br>
+			Apellido:<input type="text" id="ape" class="clase1"></input>
+			
+			<button type="button" name="hola" id="hola" class="boton" onclick="operacion();">Bot&oacuten hola</button>
+
+			<canvas id="myCanvas" width="200" height="2">
+			</canvas>
+			<script>
+				var c = document.getElementById("myCanvas");
+				var ctx = c.getContext("2d");
+				ctx.moveTo(0,0);
+				ctx.lineTo(700,0);
+				ctx.stroke();
+			</script>
+			<br>
+			<input type="text" id="total" align="right"></input>
+		</form>
+		<button type="button" id="imprimir">Imprimir</button>
+
+		<!--
+		<br>
+		<a href="https://www.facebook.com/jelpapp/?fref=ts" class="btn btn-primary" target="_blank"><img src="jelp.png" style="height: 20%; width: 20%;"></a>
+		<br>
+	</div>
+	<br>
+	<div style="text-align: center;"> -->
+		<p class="capitalize">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<!--</div>
+	<hr>
+	<footer style="background: red;">
+		Esto es el footer de la p&aacutegina.
+	</footer>-->
+</body>
+
+</html>
+
+
